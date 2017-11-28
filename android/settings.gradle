@@ -1,0 +1,3 @@
+rootProject.name = 'stepQuest_iOS'
+
+include ':app'
