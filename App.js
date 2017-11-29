@@ -1,53 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Tabs } from './components/Tabs'
-import config from './secrets'
-import store from './store.js'
-import { TabNavigator } from 'react-navigation'
-import { Provider } from 'react-redux'
-import * as firebase from 'firebase';
 
-import Login from './components/Login';
-//import {setUser} from './reducers/login';
-
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: null
-    }
-  }
-
-  componentWillMount() {
-    // console.log(config)
-    firebase.initializeApp(config)
-  }
-
-  componentDidMount() {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        // User is signed in.
-        console.log('user is logged in')
-        this.setState({ user });
-      } else {
-        // No user is signed in.
-        console.log('user is NOT logged in')
-        this.setState({ user: null })
-      }
-    });
-  }
-
+export default class App extends React.Component {
   render() {
-    if (this.state.user) {
-      return (
-        <Provider store={store}>
-            <Tabs />
-        </Provider>
-      )
-    }
     return (
-      <Provider store={store}>
-        <Login />
-      </Provider>
+      <Tabs />
     );
   }
 }

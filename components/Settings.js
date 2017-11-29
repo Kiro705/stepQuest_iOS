@@ -1,6 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import * as firebase from 'firebase';
+import { StyleSheet, Text, View, Image } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
@@ -19,28 +18,12 @@ const styles = StyleSheet.create({
 });
 
 export default class SettingsComponent extends React.Component {
-
-  constructor(props){
-    super(props)
-    this.onPressLogOut = this.onPressLogOut.bind(this)
-  }
-
-  onPressLogOut(navigate){
-    firebase.auth().signOut().then(function() {
-      // Sign-out successful.
-      navigate('App')
-    }).catch();
-  }
-
   render() {
-    const { navigate } = this.props.navigation
     return (
       <View style={styles.container}>
       	<Image style={styles.Image} source={require('./../assets/stepquestTitle.png')} />
 				<View style={styles.Textfield}>
-          <TouchableOpacity onPress={() => this.onPressLogOut(navigate)} >
-    <Text style={styles.button}>LogOut</Text>
-      </TouchableOpacity>
+        	<Text>Settings should go here???</Text>
         </View>
       </View>
     );
