@@ -51,3 +51,5 @@ export default class App extends Component {
     );
   }
 }
+
+// react-native start --port=8088
